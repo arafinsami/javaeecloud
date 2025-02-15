@@ -4,7 +4,6 @@ import com.javaee.dao.CountryDAO;
 import com.javaee.entity.Country;
 import lombok.RequiredArgsConstructor;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -13,32 +12,32 @@ public class CountryServiceImpl implements CountryService {
     private final CountryDAO countryDAO;
 
     @Override
-    public List<Country> findAll(String search, int offset, int recordPerPage) throws SQLException {
+    public List<Country> findAll(String search, int offset, int recordPerPage) {
         return countryDAO.findAll(search, offset, recordPerPage);
     }
 
     @Override
-    public boolean save(Country country) throws SQLException {
-        return countryDAO.save(country);
+    public void save(Country country) {
+        countryDAO.save(country);
     }
 
     @Override
-    public boolean update(Country country) throws SQLException {
-        return countryDAO.update(country);
+    public void update(Country country) {
+        countryDAO.update(country);
     }
 
     @Override
-    public boolean delete(int id) throws SQLException {
-        return countryDAO.delete(id);
+    public void delete(int id) {
+        countryDAO.delete(id);
     }
 
     @Override
-    public Country findById(int id) throws SQLException {
+    public Country findById(int id) {
         return countryDAO.findById(id);
     }
 
     @Override
-    public int count() throws SQLException {
-        return countryDAO.count();
+    public int count(String search) {
+        return countryDAO.count(search);
     }
 }

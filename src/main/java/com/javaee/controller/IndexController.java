@@ -44,7 +44,7 @@ public class IndexController extends HttpServlet {
             int recordsPerPage = 5;
             int offset = (page - 1) * recordsPerPage;
             List<Country> countries = countryService.findAll(search, offset, recordsPerPage);
-            int totalCountries = countryService.count();
+            int totalCountries = countryService.count(search);
             int totalPages = (int) Math.ceil((double) totalCountries / recordsPerPage);
             request.setAttribute("countries", countries);
             request.setAttribute("totalPages", totalPages);

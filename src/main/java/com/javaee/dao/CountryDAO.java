@@ -6,15 +6,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface CountryDAO {
-    List<Country> findAll(String search, int offset, int recordPerPage) throws SQLException;
+    List<Country> findAll(String search, int offset, int recordPerPage) ;
 
-    boolean save(Country country) throws SQLException;
+    void save(Country country) ;
 
-    boolean update(Country country) throws SQLException;
+    void update(Country country) ;
 
-    boolean delete(int id) throws SQLException;
+    void delete(int id) ;
 
-    Country findById(int id) throws SQLException;
+    Country findById(int id) ;
 
-    int count() throws SQLException;
+    int count(String search) ;
 }

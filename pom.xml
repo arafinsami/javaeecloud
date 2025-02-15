@@ -14,9 +14,11 @@
         <lombok-version>1.18.32</lombok-version>
         <java-ee.verion>9.1.0</java-ee.verion>
         <glassfish.version>2.0.0</glassfish.version>
+        <hibernate.version>6.3.1.Final</hibernate.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <maven-compiler-version>3.8.1</maven-compiler-version>
+        <jakarta.persistence.version>3.1.0</jakarta.persistence.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -31,6 +33,17 @@
             <groupId>org.glassfish.web</groupId>
             <artifactId>jakarta.servlet.jsp.jstl</artifactId>
             <version>${glassfish.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>${jakarta.persistence.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.version}</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
