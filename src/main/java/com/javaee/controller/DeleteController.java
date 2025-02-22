@@ -1,7 +1,7 @@
 package com.javaee.controller;
 
 import com.javaee.service.CountryService;
-import jakarta.inject.Inject;
+import com.javaee.utils.JavaEEApplicationContext;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,10 +16,14 @@ public class DeleteController extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Inject
     private CountryService countryService;
 
     public DeleteController() {
+    }
+
+    @Override
+    public void init() {
+        countryService = JavaEEApplicationContext.getBean(getServletContext(), CountryService.class, "countryService");
     }
 
     @Override

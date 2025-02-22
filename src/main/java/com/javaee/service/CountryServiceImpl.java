@@ -2,17 +2,17 @@ package com.javaee.service;
 
 import com.javaee.dao.CountryDAO;
 import com.javaee.entity.Country;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 import java.util.List;
 
-@ApplicationScoped
+@Service("countryService")
+@RequiredArgsConstructor
 public class CountryServiceImpl implements CountryService {
 
-    @Inject
-    private CountryDAO countryDAO;
+    private final CountryDAO countryDAO;
 
     @Override
     public List<Country> findAll(String search, int offset, int recordPerPage) throws SQLException {

@@ -2,7 +2,7 @@ package com.javaee.controller;
 
 import com.javaee.entity.Country;
 import com.javaee.service.CountryService;
-import jakarta.inject.Inject;
+import com.javaee.utils.JavaEEApplicationContext;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -20,10 +20,14 @@ public class IndexController extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Inject
     private CountryService countryService;
 
     public IndexController() {
+    }
+
+    @Override
+    public void init() {
+        countryService = JavaEEApplicationContext.getBean(getServletContext(), CountryService.class, "countryService");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
