@@ -3,9 +3,11 @@ package com.javaee.service;
 import com.javaee.dao.CountryDAO;
 import com.javaee.entity.Country;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("countryService")
 @RequiredArgsConstructor
 public class CountryServiceImpl implements CountryService {
 
