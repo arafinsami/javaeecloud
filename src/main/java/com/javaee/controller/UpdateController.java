@@ -1,10 +1,8 @@
 package com.javaee.controller;
 
-import com.javaee.dao.CountryDAO;
-import com.javaee.dao.CountryDAOImpl;
 import com.javaee.entity.Country;
 import com.javaee.service.CountryService;
-import com.javaee.service.CountryServiceImpl;
+import com.javaee.utils.JavaEEApplicationContext;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -28,8 +26,7 @@ public class UpdateController extends HttpServlet {
 
     @Override
     public void init() {
-        CountryDAO countryDAO = new CountryDAOImpl();
-        countryService = new CountryServiceImpl(countryDAO);
+        countryService = JavaEEApplicationContext.getBean(getServletContext(), CountryService.class, "countryService");
     }
 
     @Override

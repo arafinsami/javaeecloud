@@ -4,9 +4,11 @@ import com.javaee.entity.Country;
 import com.javaee.utils.HibernateConfig;
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository("countryDAO")
 public class CountryDAOImpl implements CountryDAO {
 
     @Override
