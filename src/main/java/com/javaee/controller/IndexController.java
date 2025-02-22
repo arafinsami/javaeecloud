@@ -1,10 +1,8 @@
 package com.javaee.controller;
 
-import com.javaee.dao.CountryDAO;
-import com.javaee.dao.CountryDAOImpl;
 import com.javaee.entity.Country;
 import com.javaee.service.CountryService;
-import com.javaee.service.CountryServiceImpl;
+import jakarta.inject.Inject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,15 +20,10 @@ public class IndexController extends HttpServlet {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    public IndexController() {
-    }
-
+    @Inject
     private CountryService countryService;
 
-    @Override
-    public void init() throws ServletException {
-        CountryDAO countryDAO = new CountryDAOImpl();
-        this.countryService = new CountryServiceImpl(countryDAO);
+    public IndexController() {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
