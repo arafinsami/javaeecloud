@@ -22,6 +22,7 @@ public class Country implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "country_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int countryId;
 
